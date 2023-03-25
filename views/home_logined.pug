@@ -1,0 +1,20 @@
+html 
+head(link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css")
+script(src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js") 
+script(src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js") 
+title 
+body 
+h1 Xin chào: #{email}<form method="POST" action="/logout"><input type="submit" value="Đăng xuất"/></form>
+.container.mt-3 
+        button(type="button" class="btn btn-primary") Thêm sản phẩm mới
+        table(class="table")
+each product in products
+        li= product.name + ' : $' + product.price
+        
+
+        
+
+
+
+
+

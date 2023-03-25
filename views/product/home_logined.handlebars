@@ -1,0 +1,47 @@
+<nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="/">GUCCI xin chào: {{email}}</a>
+        </div>
+
+        <ul class="nav navbar-nav navbar-right">
+            <li>
+                <form method="get" action="/product/add"><input type="submit" value="ADD" class="btn btn-danger"
+                        style="margin: 10px;" />
+                </form>
+            </li>
+            <li>
+                <form method="POST" action="/logout"><input type="submit" value="Đăng xuất" class="btn btn-danger"
+                        style="margin: 10px;" />
+                </form>
+            </li>
+
+        </ul>
+    </div>
+</nav>
+<h3 class="text-center">Danh sách sản phẩm</h3>
+<table class="table  table-hover">
+    <tr>
+        <th style="width: 100px; height: 100px;">Ảnh</th>
+        <th style="width: 10%;">id</th>
+        <th>Tên</th>
+        <th>Giá</th>
+        <th>Loại</th>
+        <th style="width: 13%;"></th>
+    </tr>
+    {{#each product}}
+    <tr>
+        <td><img src={{this.img}} alt="Ảnh sản phấm" style="width: 100px; height: 100px;"></td>
+        <td>{{this._id}}</td>
+        <td>
+            <h4>{{this.name}}</h4>
+        </td>
+        <td><b style="color: red;">{{this.price}}</b></td>
+        <td>{{this.loai}}</td>
+        <td><a href="/product/edit/{{this._id}}" class="btn btn-primary btn-sm">Edit</a> | <a
+                href="/product/delete/{{this._id}}" class="btn btn-danger" onclick="return confirm('Bạn có muốn xóa
+                không ?')">Delete</a>
+        </td>
+    </tr>
+    {{/each}}
+</table>
